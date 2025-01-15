@@ -21,6 +21,7 @@
 #	::1             localhost
 
 0.0.0.0 www.prueba4.com
+0.0.0.0 anydesk.com.in
 0.0.0.0 www.gotomypc.com
 0.0.0.0 support.anydesk.com
 0.0.0.0 any-desk.sourceforge.io
