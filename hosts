@@ -20,7 +20,10 @@
 #	127.0.0.1       localhost
 #	::1             localhost
 
-0.0.0.0 www.prueba5.com
+0.0.0.0 www.prueba6.com
+0.0.0.0 ultraviewer.en.softonic.com
+0.0.0.0 showmypc.en.softonic.com
+0.0.0.0 alpemix.en.softonic.com
 0.0.0.0 teamviewer.en.softonic.com
 0.0.0.0 anydesk.com.in
 0.0.0.0 www.gotomypc.com
