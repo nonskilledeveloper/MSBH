@@ -19,6 +19,9 @@
 # localhost name resolution is handled within DNS itself.
 #	127.0.0.1       localhost
 #	::1             localhost
+
+0.0.0.0 teamviewer.softonic.com
+0.0.0.0 www.softonic.com
 0.0.0.0 www.helpwire.app
 0.0.0.0 apps.microsoft.com
 0.0.0.0 www.zoho.com
