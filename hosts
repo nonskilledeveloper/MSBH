@@ -21,6 +21,8 @@
 #	::1             localhost
 # 15 01 2025 5:38 P.M.
 
+0.0.0.0 www.screenconnect.com
+0.0.0.0 dolfintech.screenconnect.com
 0.0.0.0 academy.heimdalsecurity.com
 0.0.0.0 account-rc0.teamviewer.com
 0.0.0.0 account-staging.teamviewer.com
