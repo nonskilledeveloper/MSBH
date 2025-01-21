@@ -21,6 +21,8 @@
 #	::1             localhost
 # 15 01 2025 5:38 P.M.
 
+
+0.0.0.0 wwww.snaptube.com
 0.0.0.0 anydesk.uptodown.com
 0.0.0.0 google-play.uptodown.com
 0.0.0.0 apkpure.com
