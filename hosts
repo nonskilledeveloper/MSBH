@@ -21,6 +21,13 @@
 #	::1             localhost
 # 15 01 2025 5:38 P.M.
 
+0.0.0.0 anydesk.uptodown.com
+0.0.0.0 google-play.uptodown.com
+0.0.0.0 apkpure.com
+0.0.0.0 descargar.happymod.com
+0.0.0.0 es.aptoide.com
+0.0.0.0 www.malavida.com
+0.0.0.0 apkmirror.com
 0.0.0.0 www.screenconnect.com
 0.0.0.0 dolfintech.screenconnect.com
 0.0.0.0 academy.heimdalsecurity.com
