@@ -16,13 +16,19 @@ jobs:
 
       - name: Ejecutar el script de sincronización
         run: |
-          # Crear script para actualizar archivos
           echo '#!/bin/bash
           MAIN_HOSTS="hosts"
 
-          # Buscar automáticamente archivos que comiencen con "hosts_"
-          CUSTOM_FILES=($(ls US* 2>/dev/null))
+          # Buscar archivos que comiencen con "US"
+          CUSTOM_FILES=($(find . -maxdepth 1 -type f -name "US*"))
 
+          # Si no hay archivos personalizados, salir sin error
+          if [ ${#CUSTOM_FILES[@]} -eq 0 ]; then
+              echo "No se encontraron archivos US*, saliendo..."
+              exit 0
+          fi
+
+          # Recorrer cada archivo personalizado y actualizarlo
           for CUSTOM_FILE in "${CUSTOM_FILES[@]}"; do
               if [ ! -f "$CUSTOM_FILE" ]; then
                   cp "$MAIN_HOSTS" "$CUSTOM_FILE"
@@ -42,9 +48,9 @@ jobs:
 
           git add .
           if git diff --cached --quiet; then
-            echo "No hay cambios en los archivos hosts. Saliendo..."
+            echo "No hay cambios en los archivos US*, saliendo..."
             exit 0
           fi
 
-          git commit -m "🚀 Actualización automática de archivos hosts"
+          git commit -m "🚀 Actualización automática de archivos hosts personalizados"
           git push
