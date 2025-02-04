@@ -1,0 +1,50 @@
+name: Actualizar archivos hosts personalizados
+
+on:
+  push:
+    paths:
+      - "hosts"  # Se ejecuta solo cuando se modifica el archivo principal
+  workflow_dispatch:  # Permite ejecutarlo manualmente desde GitHub Actions
+
+jobs:
+  update-hosts:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Clonar el repositorio
+        uses: actions/checkout@v4
+
+      - name: Ejecutar el script de sincronización
+        run: |
+          # Crear script para actualizar archivos
+          echo '#!/bin/bash
+          MAIN_HOSTS="hosts"
+
+          # Buscar automáticamente archivos que comiencen con "hosts_"
+          CUSTOM_FILES=($(ls US* 2>/dev/null))
+
+          for CUSTOM_FILE in "${CUSTOM_FILES[@]}"; do
+              if [ ! -f "$CUSTOM_FILE" ]; then
+                  cp "$MAIN_HOSTS" "$CUSTOM_FILE"
+                  echo "# Personalización específica para $CUSTOM_FILE" >> "$CUSTOM_FILE"
+              fi
+              grep -vxFf "$CUSTOM_FILE" "$MAIN_HOSTS" >> "$CUSTOM_FILE"
+          done
+          ' > update_hosts.sh
+
+          chmod +x update_hosts.sh
+          ./update_hosts.sh
+
+      - name: Subir cambios si hay modificaciones
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions@github.com"
+
+          git add .
+          if git diff --cached --quiet; then
+            echo "No hay cambios en los archivos hosts. Saliendo..."
+            exit 0
+          fi
+
+          git commit -m "🚀 Actualización automática de archivos hosts"
+          git push
