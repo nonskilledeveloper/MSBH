@@ -70,7 +70,7 @@ jobs:
                   new_lines+=("$header")
               fi
           
-              # Procesar cada línea hasta el máximo de líneas
+              # Procesar cada línea hasta el máximo de líneas, respetando índices (incluyendo líneas en blanco)
               for (( i=0; i<max; i++ )); do
                   local main_line=""
                   local custom_line=""
@@ -84,7 +84,7 @@ jobs:
                   if [ $i -lt $n_main ]; then
                       # Si hay línea en el archivo principal (incluso en blanco)
                       if [ $i -lt $n_custom ]; then
-                          # La línea existe en el archivo personalizado
+                          # La línea existe en el archivo personalizado.
                           if [[ "$custom_line" =~ ^[[:space:]]*# ]]; then
                               new_lines+=("$custom_line")
                           else
@@ -98,7 +98,7 @@ jobs:
                           new_lines+=("$main_line")
                       fi
                   else
-                      # Si ya no hay línea en el archivo principal pero sí en el personalizado
+                      # Si ya no hay línea en el archivo principal pero sí en el personalizado.
                       if [ $i -lt $n_custom ]; then
                           new_lines+=("$custom_line")
                       fi
@@ -107,12 +107,13 @@ jobs:
           
               # Escribir el resultado en un archivo temporal
               printf "%s\n" "${new_lines[@]}" > "$tmp_file"
-              # Eliminar duplicados en el archivo resultante, permitiendo duplicados en líneas vacías o que empiecen con "#"
+          
+              # Eliminar duplicados, permitiendo duplicados solo en líneas en blanco o en comentarios "en blanco"
               awk '{
-                  if ($0 ~ /^[[:space:]]*$/ || $0 ~ /^[[:space:]]*#/) {
+                  if ($0 ~ /^[[:space:]]*$/ || $0 ~ /^[[:space:]]*#[[:space:]]*$/) {
                       print
-                  } else if (!($0 in seen)) {
-                      seen[$0]=1; print
+                  } else {
+                      if (!($0 in seen)) { seen[$0]=1; print }
                   }
               }' "$tmp_file" > "${tmp_file}_uniq"
               mv "${tmp_file}_uniq" "$custom_file"
@@ -124,13 +125,13 @@ jobs:
                   # Si aún no existe, se crea copiando el archivo principal y agregando una cabecera.
                   cp "$MAIN_HOSTS" "$CUSTOM_FILE"
                   sed -i "1s/^/# Personalización específica para $CUSTOM_FILE\n/" "$CUSTOM_FILE"
-                  # Eliminar duplicados con excepción de líneas en blanco y comentadas
+                  # Eliminar duplicados con la misma regla.
                   tmpfile=$(mktemp)
                   awk '{
-                      if ($0 ~ /^[[:space:]]*$/ || $0 ~ /^[[:space:]]*#/) {
+                      if ($0 ~ /^[[:space:]]*$/ || $0 ~ /^[[:space:]]*#[[:space:]]*$/) {
                           print
-                      } else if (!($0 in seen)) {
-                          seen[$0]=1; print
+                      } else {
+                          if (!($0 in seen)) { seen[$0]=1; print }
                       }
                   }' "$CUSTOM_FILE" > "$tmpfile"
                   mv "$tmpfile" "$CUSTOM_FILE"
