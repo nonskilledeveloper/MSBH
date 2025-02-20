@@ -48,8 +48,12 @@ jobs:
               declare -A commented_lines
               for line in "${custom_lines[@]}"; do
                   if [[ "$line" =~ ^[[:space:]]*# ]]; then
-                      trimmed=$(echo "$line" | sed 's/^[[:space:]]*#//')
-                      commented_lines["$trimmed"]=1
+                      # Remover el símbolo '#' y recortar espacios en blanco a ambos lados.
+                      trimmed="${line#\#}"
+                      trimmed="$(echo -e "$trimmed" | sed -E 's/^[[:space:]]+//; s/[[:space:]]+$//')"
+                      if [ -n "$trimmed" ]; then
+                          commented_lines["$trimmed"]=1
+                      fi
                   fi
               done
           
@@ -58,13 +62,13 @@ jobs:
               local n_custom=${#custom_lines[@]}
               local max=$n_main
               if [ $n_custom -gt $max ]; then
-                max=$n_custom
+                  max=$n_custom
               fi
           
               new_lines=()
               # Incluir la cabecera si existe.
               if [ -n "$header" ]; then
-                new_lines+=("$header")
+                  new_lines+=("$header")
               fi
           
               # Procesar línea por línea
@@ -110,7 +114,7 @@ jobs:
                   fi
               done
           
-              # Escribir el resultado en el archivo temporal y reemplazar el personalizado.
+              # Escribir el resultado en el archivo temporal y reemplazar el archivo personalizado.
               printf "%s\n" "${new_lines[@]}" > "$tmp_file"
               mv "$tmp_file" "$custom_file"
           }
@@ -129,7 +133,7 @@ jobs:
           
           chmod +x update_hosts.sh
           ./update_hosts.sh
-
+          
       - name: Subir cambios si hay modificaciones
         run: |
           git config --global user.name "github-actions[bot]"
