@@ -1,57 +1,114 @@
 #!/bin/bash
+set -e
 MAIN_HOSTS="hosts"
 
-# Buscar archivos personalizados que comiencen con "US"
-CUSTOM_FILES=($(find . -maxdepth 1 -type f -name "US*"))
+# Buscar archivos que comiencen con "US"
+CUSTOM_FILES=( $(find . -maxdepth 1 -type f -name "US*") )
 
-# Si no hay archivos personalizados, salir sin error
 if [ ${#CUSTOM_FILES[@]} -eq 0 ]; then
     echo "No se encontraron archivos US*, saliendo..."
     exit 0
 fi
 
-for CUSTOM_FILE in "${CUSTOM_FILES[@]}"; do
-    # Si el archivo personalizado no existe, se crea copiando el archivo principal
-    if [ ! -f "$CUSTOM_FILE" ]; then
-        cp "$MAIN_HOSTS" "$CUSTOM_FILE"
-        echo "# Personalización específica para $CUSTOM_FILE" >> "$CUSTOM_FILE"
-    else
-        # Se crea un archivo temporal para generar la versión actualizada
-        TMP=$(mktemp)
+# Función para actualizar el archivo personalizado en base al archivo principal.
+update_custom() {
+    local custom_file="$1"
+    local tmp_file
+    tmp_file=$(mktemp)
 
-        # Procesar cada línea del archivo principal
-        while IFS= read -r main_line || [ -n "$main_line" ]; do
-            # Si la línea exacta ya existe (sin comentario) en el archivo personalizado
-            if grep -Fxq "$main_line" "$CUSTOM_FILE"; then
-                echo "$main_line" >> "$TMP"
-            # Si la misma línea existe comentada
-            elif grep -Fq "#$main_line" "$CUSTOM_FILE"; then
-                grep -F "#$main_line" "$CUSTOM_FILE" >> "$TMP"
+    # Leer líneas del archivo principal y del personalizado en arrays.
+    mapfile -t main_lines < "$MAIN_HOSTS"
+    mapfile -t custom_lines < "$custom_file"
+
+    # Si el archivo personalizado tiene una cabecera de personalización, se conserva.
+    local header=""
+    if [[ ${custom_lines[0]} =~ ^[[:space:]]*#\ Personalización\ específica\ para\ .* ]]; then
+        header="${custom_lines[0]}"
+        custom_lines=("${custom_lines[@]:1}")
+    fi
+
+    # Crear un array asociativo con las líneas comentadas del personalizado (sin el símbolo "#").
+    declare -A commented_lines
+    for line in "${custom_lines[@]}"; do
+        if [[ "$line" =~ ^[[:space:]]*# ]]; then
+            # Remover el símbolo '#' y recortar espacios en blanco a ambos lados.
+            trimmed="${line#\#}"
+            trimmed="$(echo -e "$trimmed" | sed -E 's/^[[:space:]]+//; s/[[:space:]]+$//')"
+            if [ -n "$trimmed" ]; then
+                commented_lines["$trimmed"]=1
+            fi
+        fi
+    done
+
+    # Determinar el número máximo de líneas a procesar (para preservar el orden)
+    local n_main=${#main_lines[@]}
+    local n_custom=${#custom_lines[@]}
+    local max=$n_main
+    if [ $n_custom -gt $max ]; then
+        max=$n_custom
+    fi
+
+    new_lines=()
+    # Incluir la cabecera si existe.
+    if [ -n "$header" ]; then
+        new_lines+=("$header")
+    fi
+
+    # Procesar línea por línea
+    for (( i=0; i<max; i++ )); do
+        local main_line=""
+        local custom_line=""
+        if [ $i -lt $n_main ]; then
+            main_line="${main_lines[i]}"
+        fi
+        if [ $i -lt $n_custom ]; then
+            custom_line="${custom_lines[i]}"
+        fi
+
+        if [ -n "$main_line" ]; then
+            # Si en el personalizado no existe la línea en ese renglón…
+            if [ -z "$custom_line" ]; then
+                # Verificar si la línea ya existe en forma comentada.
+                if [[ ${commented_lines["$main_line"]+exists} ]]; then
+                    # Se considera duplicada, no se añade.
+                    new_lines+=("")
+                else
+                    new_lines+=("$main_line")
+                fi
             else
-                # Buscar línea similar por el segundo campo (nombre de host)
-                host_key=$(echo "$main_line" | awk {print })
-                if [ -n "$host_key" ]; then
-                    existing=$(grep -v ^# "$CUSTOM_FILE" | grep -F " $host_key")
-                    if [ -n "$existing" ]; then
-                        echo "$main_line" >> "$TMP"
-                        continue
+                # Si ya existe una línea en el personalizado:
+                # Si está comentada, se conserva sin cambios.
+                if [[ "$custom_line" =~ ^[[:space:]]*# ]]; then
+                    new_lines+=("$custom_line")
+                else
+                    # Si no está comentada y difiere de la principal, se actualiza.
+                    if [ "$custom_line" != "$main_line" ]; then
+                        new_lines+=("$main_line")
+                    else
+                        new_lines+=("$custom_line")
                     fi
                 fi
-                echo "$main_line" >> "$TMP"
             fi
-        done < "$MAIN_HOSTS"
-
-        # Conservar líneas comentadas personalizadas
-        while IFS= read -r custom_line || [ -n "$custom_line" ]; do
-            if [[ "$custom_line" =~ ^# ]]; then
-                uncommented=$(echo "$custom_line" | sed s/^#//)
-                if ! grep -Fxq "$custom_line" "$TMP" && ! grep -Fxq "#$uncommented" "$TMP"; then
-                    echo "$custom_line" >> "$TMP"
-                fi
+        else
+            # Si no hay línea en el archivo principal pero sí en el personalizado, se conserva.
+            if [ -n "$custom_line" ]; then
+                new_lines+=("$custom_line")
             fi
-        done < "$CUSTOM_FILE"
+        fi
+    done
 
-        mv "$TMP" "$CUSTOM_FILE"
+    # Escribir el resultado en el archivo temporal y reemplazar el archivo personalizado.
+    printf "%s\n" "${new_lines[@]}" > "$tmp_file"
+    mv "$tmp_file" "$custom_file"
+}
+
+# Procesar cada archivo US*
+for CUSTOM_FILE in "${CUSTOM_FILES[@]}"; do
+    if [ ! -f "$CUSTOM_FILE" ]; then
+        # Si aún no existe, se crea copiando el archivo principal y agregando una cabecera.
+        cp "$MAIN_HOSTS" "$CUSTOM_FILE"
+        sed -i "1s/^/# Personalización específica para $CUSTOM_FILE\n/" "$CUSTOM_FILE"
+    else
+        update_custom "$CUSTOM_FILE"
     fi
 done
-
