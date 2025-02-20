@@ -40,7 +40,6 @@ update_custom() {
         fi
     done
 
-    # Determinar el número máximo de líneas a procesar (para preservar el orden)
     local n_main=${#main_lines[@]}
     local n_custom=${#custom_lines[@]}
     local max=$n_main
@@ -54,7 +53,6 @@ update_custom() {
         new_lines+=("$header")
     fi
 
-    # Procesar línea por línea
     for (( i=0; i<max; i++ )); do
         local main_line=""
         local custom_line=""
@@ -65,33 +63,25 @@ update_custom() {
             custom_line="${custom_lines[i]}"
         fi
 
-        if [ -n "$main_line" ]; then
-            # Si en el personalizado no existe la línea en ese renglón…
-            if [ -z "$custom_line" ]; then
-                # Verificar si la línea ya existe en forma comentada.
-                if [[ ${commented_lines["$main_line"]+exists} ]]; then
-                    # Se considera duplicada, no se añade.
-                    new_lines+=("")
-                else
-                    new_lines+=("$main_line")
-                fi
-            else
-                # Si ya existe una línea en el personalizado:
-                # Si está comentada, se conserva sin cambios.
+        if [ $i -lt $n_main ]; then
+            # Existe la línea en el archivo principal (incluso si está en blanco).
+            if [ $i -lt $n_custom ]; then
+                # La línea existe en el archivo personalizado.
                 if [[ "$custom_line" =~ ^[[:space:]]*# ]]; then
                     new_lines+=("$custom_line")
                 else
-                    # Si no está comentada y difiere de la principal, se actualiza.
                     if [ "$custom_line" != "$main_line" ]; then
                         new_lines+=("$main_line")
                     else
                         new_lines+=("$custom_line")
                     fi
                 fi
+            else
+                new_lines+=("$main_line")
             fi
         else
-            # Si no hay línea en el archivo principal pero sí en el personalizado, se conserva.
-            if [ -n "$custom_line" ]; then
+            # No existe la línea en el archivo principal, pero sí en el personalizado.
+            if [ $i -lt $n_custom ]; then
                 new_lines+=("$custom_line")
             fi
         fi
@@ -102,10 +92,8 @@ update_custom() {
     mv "$tmp_file" "$custom_file"
 }
 
-# Procesar cada archivo US*
 for CUSTOM_FILE in "${CUSTOM_FILES[@]}"; do
     if [ ! -f "$CUSTOM_FILE" ]; then
-        # Si aún no existe, se crea copiando el archivo principal y agregando una cabecera.
         cp "$MAIN_HOSTS" "$CUSTOM_FILE"
         sed -i "1s/^/# Personalización específica para $CUSTOM_FILE\n/" "$CUSTOM_FILE"
     else
