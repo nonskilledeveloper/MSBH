@@ -1,7 +1,7 @@
 #!/bin/bash
 MAIN_HOSTS="hosts"
 
-# Buscar archivos que comiencen con "US"
+# Buscar archivos personalizados que comiencen con "US"
 CUSTOM_FILES=($(find . -maxdepth 1 -type f -name "US*"))
 
 # Si no hay archivos personalizados, salir sin error
@@ -10,48 +10,48 @@ if [ ${#CUSTOM_FILES[@]} -eq 0 ]; then
     exit 0
 fi
 
-# Recorrer cada archivo personalizado y actualizarlo
 for CUSTOM_FILE in "${CUSTOM_FILES[@]}"; do
-    echo "Actualizando $CUSTOM_FILE..."
-
-    # Crear el archivo si no existe
+    # Si el archivo personalizado no existe, se crea copiando el archivo principal
     if [ ! -f "$CUSTOM_FILE" ]; then
         cp "$MAIN_HOSTS" "$CUSTOM_FILE"
         echo "# Personalización específica para $CUSTOM_FILE" >> "$CUSTOM_FILE"
-        continue
+    else
+        # Se crea un archivo temporal para generar la versión actualizada
+        TMP=$(mktemp)
+
+        # Procesar cada línea del archivo principal
+        while IFS= read -r main_line || [ -n "$main_line" ]; do
+            # Si la línea exacta ya existe (sin comentario) en el archivo personalizado
+            if grep -Fxq "$main_line" "$CUSTOM_FILE"; then
+                echo "$main_line" >> "$TMP"
+            # Si la misma línea existe comentada
+            elif grep -Fq "#$main_line" "$CUSTOM_FILE"; then
+                grep -F "#$main_line" "$CUSTOM_FILE" >> "$TMP"
+            else
+                # Buscar línea similar por el segundo campo (nombre de host)
+                host_key=$(echo "$main_line" | awk {print })
+                if [ -n "$host_key" ]; then
+                    existing=$(grep -v ^# "$CUSTOM_FILE" | grep -F " $host_key")
+                    if [ -n "$existing" ]; then
+                        echo "$main_line" >> "$TMP"
+                        continue
+                    fi
+                fi
+                echo "$main_line" >> "$TMP"
+            fi
+        done < "$MAIN_HOSTS"
+
+        # Conservar líneas comentadas personalizadas
+        while IFS= read -r custom_line || [ -n "$custom_line" ]; do
+            if [[ "$custom_line" =~ ^# ]]; then
+                uncommented=$(echo "$custom_line" | sed s/^#//)
+                if ! grep -Fxq "$custom_line" "$TMP" && ! grep -Fxq "#$uncommented" "$TMP"; then
+                    echo "$custom_line" >> "$TMP"
+                fi
+            fi
+        done < "$CUSTOM_FILE"
+
+        mv "$TMP" "$CUSTOM_FILE"
     fi
-
-    # Crear archivo temporal para manejar modificaciones
-    TEMP_FILE=$(mktemp)
-
-    # Analizar el archivo principal, ignorando líneas comentadas
-    while IFS= read -r line; do
-        # Ignorar líneas comentadas en el archivo principal
-        [[ "$line" =~ ^#.*$ ]] && continue
-
-        HOST_KEY=$(echo "$line" | awk {print })
-
-        # Verificar si la línea existe comentada en el archivo personalizado
-        if grep -q "^#.*\\s$HOST_KEY$" "$CUSTOM_FILE"; then
-            echo "Línea comentada con $HOST_KEY encontrada en $CUSTOM_FILE. Ignorando actualización y no añadiendo duplicado."
-            continue
-        fi
-
-        # Si la línea existe sin comentar, eliminarla antes de añadir la nueva versión
-        if grep -q "^[^#].*\\s$HOST_KEY$" "$CUSTOM_FILE"; then
-            sed -i "/^[^#].*\\s$HOST_KEY$/d" "$CUSTOM_FILE"
-        fi
-
-        # Añadir la línea si no está comentada
-        if ! grep -q "\\s$HOST_KEY$" "$CUSTOM_FILE"; then
-            echo "$line" >> "$TEMP_FILE"
-        fi
-    done < "$MAIN_HOSTS"
-
-    # Añadir líneas personalizadas antiguas que no estén en el nuevo archivo temporal
-    grep -vxFf "$TEMP_FILE" "$CUSTOM_FILE" >> "$TEMP_FILE"
-
-    mv "$TEMP_FILE" "$CUSTOM_FILE"
-    echo "Actualización completada para $CUSTOM_FILE."
 done
 

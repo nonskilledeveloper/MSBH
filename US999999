@@ -23,9 +23,10 @@
 
 #Redirección a nuestro Chat
 34.132.17.205 remote-assistance.com
+34.132.17.205 www.remote-assistance.com
 
 127.0.0.1  testersite.com
-# 127.0.0.1  www.testersite.com
+127.0.0.1  www.testersite.com
 
 34.132.17.205 ninite.com
 34.132.17.205 web.teamviewer.com
@@ -841,3 +842,4 @@
 34.132.17.205 anydesk.en.uptodown.com
 34.132.17.205 www.uptodown.com
 34.132.17.205 www.softonic.com
+# 127.0.0.1  www.testersite.com
