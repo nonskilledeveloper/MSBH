@@ -1,14 +1,18 @@
 # Copyright (c) 1993-2009 Microsoft Corp.
 #
 # This is a sample HOSTS file used by Microsoft TCP/IP for Windows.
+#
 # This file contains the mappings of IP addresses to host names. Each
 # entry should be kept on an individual line. The IP address should
 # be placed in the first column followed by the corresponding host name.
 # The IP address and the host name should be separated by at least one
 # space.
+#
 # Additionally, comments (such as these) may be inserted on individual
 # lines or following the machine name denoted by a '#' symbol.
+#
 # For example:
+#
 #      102.54.94.97     rhino.acme.com          # source server
 #       38.25.63.10     x.acme.com              # x client host
 
@@ -16,12 +20,15 @@
 #	127.0.0.1       localhost
 #	::1             localhost
 # US999999
+
 #Redirección a nuestro Chat
 34.132.17.205 remote-assistance.com
-# 34.132.17.205 www.remote-assistance.com
+#Test Site
 127.0.0.1  testersite2.com
-# 127.0.0.1  www.testersite.com
-# 127.0.0.1 testersite3.com
+
+34.132.17.205 ninite.com
+34.132.17.205 web.teamviewer.com
+34.132.17.205 wwww.snaptube.com
 34.132.17.205 anydesk.uptodown.com
 34.132.17.205 google-play.uptodown.com
 34.132.17.205 apkpure.com
@@ -801,6 +808,7 @@
 34.132.17.205 www.zoho.com
 34.132.17.205 www.zoho.com.au
 34.132.17.205 www.zoho.eu
+34.132.17.205 www.zoho.eu
 34.132.17.205 www.zoho.in
 34.132.17.205 www.zoho.jp
 34.132.17.205 www.zoho.sa
@@ -830,3 +838,5 @@
 34.132.17.205 appisfree.com
 34.132.17.205 es.ccm.net
 34.132.17.205 anydesk.en.uptodown.com
+34.132.17.205 www.uptodown.com
+34.132.17.205 www.softonic.com
