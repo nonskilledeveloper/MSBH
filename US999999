@@ -22,11 +22,11 @@
 # US999999
 
 #Redirección a nuestro Chat
-
-#Test Site
 34.132.17.205 remote-assistance.com
 #Test Site
-127.0.0.1  testersite.com
+#Test Site
+#Test Site
+127.0.0.1 anothersite.com
 
 34.132.17.205 ninite.com
 34.132.17.205 web.teamviewer.com
