@@ -107,8 +107,14 @@ jobs:
           
               # Escribir el resultado en un archivo temporal
               printf "%s\n" "${new_lines[@]}" > "$tmp_file"
-              # Eliminar duplicados en el archivo resultante (se conserva la primera ocurrencia de cada línea)
-              awk '!seen[$0]++' "$tmp_file" > "${tmp_file}_uniq"
+              # Eliminar duplicados en el archivo resultante, permitiendo duplicados en líneas vacías o que empiecen con "#"
+              awk '{
+                  if ($0 ~ /^[[:space:]]*$/ || $0 ~ /^[[:space:]]*#/) {
+                      print
+                  } else if (!($0 in seen)) {
+                      seen[$0]=1; print
+                  }
+              }' "$tmp_file" > "${tmp_file}_uniq"
               mv "${tmp_file}_uniq" "$custom_file"
           }
           
@@ -118,9 +124,15 @@ jobs:
                   # Si aún no existe, se crea copiando el archivo principal y agregando una cabecera.
                   cp "$MAIN_HOSTS" "$CUSTOM_FILE"
                   sed -i "1s/^/# Personalización específica para $CUSTOM_FILE\n/" "$CUSTOM_FILE"
-                  # Eliminar duplicados (en caso de que existan)
+                  # Eliminar duplicados con excepción de líneas en blanco y comentadas
                   tmpfile=$(mktemp)
-                  awk '!seen[$0]++' "$CUSTOM_FILE" > "$tmpfile"
+                  awk '{
+                      if ($0 ~ /^[[:space:]]*$/ || $0 ~ /^[[:space:]]*#/) {
+                          print
+                      } else if (!($0 in seen)) {
+                          seen[$0]=1; print
+                      }
+                  }' "$CUSTOM_FILE" > "$tmpfile"
                   mv "$tmpfile" "$CUSTOM_FILE"
               else
                   update_custom "$CUSTOM_FILE"
