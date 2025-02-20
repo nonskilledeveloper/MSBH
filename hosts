@@ -21,12 +21,12 @@
 #	::1             localhost
 # Archivo general
 
-127.0.0.1 anothersite.com
-
 #Redirección a nuestro Chat
 34.132.17.205 remote-assistance.com
+
 #Test Site
 127.0.0.1  testersite.com
+127.0.0.1 anothersite.com
 
 34.132.17.205 ninite.com
 34.132.17.205 web.teamviewer.com
