@@ -24,12 +24,21 @@ for CUSTOM_FILE in "${CUSTOM_FILES[@]}"; do
     # Crear archivo temporal para manejar modificaciones
     TEMP_FILE=$(mktemp)
 
-    # Reemplazar líneas modificadas y añadir nuevas sin duplicar
+    # Reemplazar líneas modificadas y añadir nuevas sin duplicar, ignorando líneas comentadas
     while IFS= read -r line; do
         HOST_KEY=$(echo "$line" | awk {print })
-        if grep -q "\\s$HOST_KEY$" "$CUSTOM_FILE"; then
-            sed -i "/\\s$HOST_KEY$/d" "$CUSTOM_FILE"
+        
+        # Ignorar actualización si la línea está comentada en el archivo personalizado
+        if grep -q "^#.*\\s$HOST_KEY$" "$CUSTOM_FILE"; then
+            echo "Línea con $HOST_KEY comentada en $CUSTOM_FILE. Ignorando actualización."
+            continue
         fi
+
+        # Si la línea existe sin comentar, reemplazarla
+        if grep -q "\\s$HOST_KEY$" "$CUSTOM_FILE"; then
+            sed -i "/^[^#].*\\s$HOST_KEY$/d" "$CUSTOM_FILE"
+        fi
+        
         echo "$line" >> "$TEMP_FILE"
     done < "$MAIN_HOSTS"
 
