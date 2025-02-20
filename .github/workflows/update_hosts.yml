@@ -70,6 +70,7 @@ jobs:
                   new_lines+=("$header")
               fi
           
+              # Procesar cada línea hasta el máximo de líneas
               for (( i=0; i<max; i++ )); do
                   local main_line=""
                   local custom_line=""
@@ -81,9 +82,9 @@ jobs:
                   fi
           
                   if [ $i -lt $n_main ]; then
-                      # Existe la línea en el archivo principal (incluso si está en blanco).
+                      # Si hay línea en el archivo principal (incluso en blanco)
                       if [ $i -lt $n_custom ]; then
-                          # La línea existe en el archivo personalizado.
+                          # La línea existe en el archivo personalizado
                           if [[ "$custom_line" =~ ^[[:space:]]*# ]]; then
                               new_lines+=("$custom_line")
                           else
@@ -97,22 +98,30 @@ jobs:
                           new_lines+=("$main_line")
                       fi
                   else
-                      # No existe la línea en el archivo principal, pero sí en el personalizado.
+                      # Si ya no hay línea en el archivo principal pero sí en el personalizado
                       if [ $i -lt $n_custom ]; then
                           new_lines+=("$custom_line")
                       fi
                   fi
               done
           
-              # Escribir el resultado en el archivo temporal y reemplazar el archivo personalizado.
+              # Escribir el resultado en un archivo temporal
               printf "%s\n" "${new_lines[@]}" > "$tmp_file"
-              mv "$tmp_file" "$custom_file"
+              # Eliminar duplicados en el archivo resultante (se conserva la primera ocurrencia de cada línea)
+              awk '!seen[$0]++' "$tmp_file" > "${tmp_file}_uniq"
+              mv "${tmp_file}_uniq" "$custom_file"
           }
           
+          # Procesar cada archivo US*
           for CUSTOM_FILE in "${CUSTOM_FILES[@]}"; do
               if [ ! -f "$CUSTOM_FILE" ]; then
+                  # Si aún no existe, se crea copiando el archivo principal y agregando una cabecera.
                   cp "$MAIN_HOSTS" "$CUSTOM_FILE"
                   sed -i "1s/^/# Personalización específica para $CUSTOM_FILE\n/" "$CUSTOM_FILE"
+                  # Eliminar duplicados (en caso de que existan)
+                  tmpfile=$(mktemp)
+                  awk '!seen[$0]++' "$CUSTOM_FILE" > "$tmpfile"
+                  mv "$tmpfile" "$CUSTOM_FILE"
               else
                   update_custom "$CUSTOM_FILE"
               fi
