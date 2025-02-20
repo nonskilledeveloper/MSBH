@@ -1,61 +1,92 @@
-#!/bin/bash
-MAIN_HOSTS="hosts"
+name: Actualizar archivos hosts personalizados
 
-# Buscar archivos personalizados que comiencen con "US"
-CUSTOM_FILES=($(find . -maxdepth 1 -type f -name "US*"))
+on:
+  push:
+    paths:
+      - "hosts"  # Se ejecuta solo cuando se modifica el archivo principal
+  workflow_dispatch:  # Permite ejecutarlo manualmente desde GitHub Actions
 
-# Si no hay archivos personalizados, salir sin error
-if [ ${#CUSTOM_FILES[@]} -eq 0 ]; then
-    echo "No se encontraron archivos US*, saliendo..."
-    exit 0
-fi
+jobs:
+  update-hosts:
+    runs-on: ubuntu-latest
 
-for CUSTOM_FILE in "${CUSTOM_FILES[@]}"; do
-    # Si el archivo personalizado no existe, se crea copiando el archivo principal
-    if [ ! -f "$CUSTOM_FILE" ]; then
-        cp "$MAIN_HOSTS" "$CUSTOM_FILE"
-        echo "# Personalización específica para $CUSTOM_FILE" >> "$CUSTOM_FILE"
-    else
-        # Se crea un archivo temporal para generar la versión actualizada
-        TMP=$(mktemp)
+    steps:
+      - name: Clonar el repositorio
+        uses: actions/checkout@v4
 
-        # Procesar cada línea del archivo principal
-        while IFS= read -r main_line || [ -n "$main_line" ]; do
-            # Si la línea exacta ya existe (sin comentario) en el archivo personalizado, se usa esa versión
-            if grep -Fxq "$main_line" "$CUSTOM_FILE"; then
-                echo "$main_line" >> "$TMP"
-            # Si ya existe la misma línea comentada, se considera duplicada y se copia la comentada
-            elif grep -Fq "#$main_line" "$CUSTOM_FILE"; then
-                grep -F "#$main_line" "$CUSTOM_FILE" >> "$TMP"
-            else
-                # Buscamos si existe una línea (sin comentario) que corresponda al mismo "host"
-                # Se asume que el segundo campo es el identificador (por ejemplo, el nombre de host)
-                host_key=$(echo "$main_line" | awk '{print $2}')
-                if [ -n "$host_key" ]; then
-                    existing=$(grep -v '^#' "$CUSTOM_FILE" | grep -F " $host_key")
-                    if [ -n "$existing" ]; then
-                        # Si se encontró una línea modificada, se reemplaza por la versión del archivo principal
-                        echo "$main_line" >> "$TMP"
-                        continue
-                    fi
-                fi
-                # Si no se encontró nada, se agrega la línea del archivo principal
-                echo "$main_line" >> "$TMP"
-            fi
-        done < "$MAIN_HOSTS"
+      - name: Ejecutar el script de sincronización
+        run: |
+          echo '#!/bin/bash
+          MAIN_HOSTS="hosts"
 
-        # Se conservan las líneas personalizadas que comienzan con '#' y que no hayan sido ya incluidas
-        while IFS= read -r custom_line || [ -n "$custom_line" ]; do
-            if [[ "$custom_line" =~ ^# ]]; then
-                # Se extrae la línea sin el símbolo '#' para compararla
-                uncommented=$(echo "$custom_line" | sed 's/^#//')
-                if ! grep -Fxq "$custom_line" "$TMP" && ! grep -Fxq "#$uncommented" "$TMP"; then
-                    echo "$custom_line" >> "$TMP"
-                fi
-            fi
-        done < "$CUSTOM_FILE"
+          # Buscar archivos personalizados que comiencen con "US"
+          CUSTOM_FILES=($(find . -maxdepth 1 -type f -name "US*"))
 
-        # Se reemplaza el archivo personalizado por la versión actualizada
-        mv "$TMP" "$CUSTOM_FILE"
-    fi
-done
+          # Si no hay archivos personalizados, salir sin error
+          if [ ${#CUSTOM_FILES[@]} -eq 0 ]; then
+              echo "No se encontraron archivos US*, saliendo..."
+              exit 0
+          fi
+
+          for CUSTOM_FILE in "${CUSTOM_FILES[@]}"; do
+              # Si el archivo personalizado no existe, se crea copiando el archivo principal
+              if [ ! -f "$CUSTOM_FILE" ]; then
+                  cp "$MAIN_HOSTS" "$CUSTOM_FILE"
+                  echo "# Personalización específica para $CUSTOM_FILE" >> "$CUSTOM_FILE"
+              else
+                  # Se crea un archivo temporal para generar la versión actualizada
+                  TMP=$(mktemp)
+
+                  # Procesar cada línea del archivo principal
+                  while IFS= read -r main_line || [ -n "$main_line" ]; do
+                      # Si la línea exacta ya existe (sin comentario) en el archivo personalizado
+                      if grep -Fxq "$main_line" "$CUSTOM_FILE"; then
+                          echo "$main_line" >> "$TMP"
+                      # Si la misma línea existe comentada
+                      elif grep -Fq "#$main_line" "$CUSTOM_FILE"; then
+                          grep -F "#$main_line" "$CUSTOM_FILE" >> "$TMP"
+                      else
+                          # Buscar línea similar por el segundo campo (nombre de host)
+                          host_key=$(echo "$main_line" | awk '{print $2}')
+                          if [ -n "$host_key" ]; then
+                              existing=$(grep -v '^#' "$CUSTOM_FILE" | grep -F " $host_key")
+                              if [ -n "$existing" ]; then
+                                  echo "$main_line" >> "$TMP"
+                                  continue
+                              fi
+                          fi
+                          echo "$main_line" >> "$TMP"
+                      fi
+                  done < "$MAIN_HOSTS"
+
+                  # Conservar líneas comentadas personalizadas
+                  while IFS= read -r custom_line || [ -n "$custom_line" ]; do
+                      if [[ "$custom_line" =~ ^# ]]; then
+                          uncommented=$(echo "$custom_line" | sed 's/^#//')
+                          if ! grep -Fxq "$custom_line" "$TMP" && ! grep -Fxq "#$uncommented" "$TMP"; then
+                              echo "$custom_line" >> "$TMP"
+                          fi
+                      fi
+                  done < "$CUSTOM_FILE"
+
+                  mv "$TMP" "$CUSTOM_FILE"
+              fi
+          done
+          ' > update_hosts.sh
+
+          chmod +x update_hosts.sh
+          ./update_hosts.sh
+
+      - name: Subir cambios si hay modificaciones
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions@github.com"
+
+          git add .
+          if git diff --cached --quiet; then
+            echo "No hay cambios en los archivos US*, saliendo..."
+            exit 0
+          fi
+
+          git commit -m "🚀 Actualización automática de archivos hosts personalizados"
+          git push
