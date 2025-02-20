@@ -24,25 +24,31 @@ for CUSTOM_FILE in "${CUSTOM_FILES[@]}"; do
     # Crear archivo temporal para manejar modificaciones
     TEMP_FILE=$(mktemp)
 
-    # Reemplazar líneas modificadas y añadir nuevas sin duplicar, ignorando líneas comentadas
+    # Analizar el archivo principal, ignorando líneas comentadas
     while IFS= read -r line; do
+        # Ignorar líneas comentadas en el archivo principal
+        [[ "$line" =~ ^#.*$ ]] && continue
+
         HOST_KEY=$(echo "$line" | awk {print })
-        
-        # Ignorar actualización si la línea está comentada en el archivo personalizado
+
+        # Verificar si la línea existe comentada en el archivo personalizado
         if grep -q "^#.*\\s$HOST_KEY$" "$CUSTOM_FILE"; then
-            echo "Línea con $HOST_KEY comentada en $CUSTOM_FILE. Ignorando actualización."
+            echo "Línea comentada con $HOST_KEY encontrada en $CUSTOM_FILE. Ignorando actualización y no añadiendo duplicado."
             continue
         fi
 
-        # Si la línea existe sin comentar, reemplazarla
-        if grep -q "\\s$HOST_KEY$" "$CUSTOM_FILE"; then
+        # Si la línea existe sin comentar, eliminarla antes de añadir la nueva versión
+        if grep -q "^[^#].*\\s$HOST_KEY$" "$CUSTOM_FILE"; then
             sed -i "/^[^#].*\\s$HOST_KEY$/d" "$CUSTOM_FILE"
         fi
-        
-        echo "$line" >> "$TEMP_FILE"
+
+        # Añadir la línea si no está comentada
+        if ! grep -q "\\s$HOST_KEY$" "$CUSTOM_FILE"; then
+            echo "$line" >> "$TEMP_FILE"
+        fi
     done < "$MAIN_HOSTS"
 
-    # Añadir líneas personalizadas antiguas que no estén en el nuevo archivo
+    # Añadir líneas personalizadas antiguas que no estén en el nuevo archivo temporal
     grep -vxFf "$TEMP_FILE" "$CUSTOM_FILE" >> "$TEMP_FILE"
 
     mv "$TEMP_FILE" "$CUSTOM_FILE"
