@@ -24,7 +24,7 @@
 #Redirección a nuestro Chat
 34.132.17.205 remote-assistance.com
 
-127.0.0.1  testersite.com
+#127.0.0.1  testersite.com
 127.0.0.1  www.testersite.com
 
 34.132.17.205 ninite.com
