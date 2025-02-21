@@ -25,7 +25,7 @@
 34.132.17.205 remote-assistance.com
 
 #Test Site
-127.0.0.1 testersite4.com
+127.0.0.1 testersite3.com
 127.0.0.1 anothersite.com
 
 34.132.17.205 ninite.com
@@ -810,7 +810,6 @@
 34.132.17.205 www.zoho.com
 34.132.17.205 www.zoho.com.au
 34.132.17.205 www.zoho.eu
-34.132.17.205 www.zoho.eu
 34.132.17.205 www.zoho.in
 34.132.17.205 www.zoho.jp
 34.132.17.205 www.zoho.sa
@@ -840,5 +839,3 @@
 34.132.17.205 appisfree.com
 34.132.17.205 es.ccm.net
 34.132.17.205 anydesk.en.uptodown.com
-34.132.17.205 www.uptodown.com
-34.132.17.205 www.softonic.com
