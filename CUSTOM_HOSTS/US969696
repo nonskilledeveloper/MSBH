@@ -20,3 +20,6 @@
 #	127.0.0.1       localhost
 #	::1             localhost
 # US969696
+
+127.0.0.2 www.testsite.com
+127.0.0.2 testsite.com
