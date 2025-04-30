@@ -21,5 +21,10 @@
 #	::1             localhost
 # US969696
 
-127.0.0.2 www.testsite.com
-127.0.0.2 testsite.com
+#Redirección a nuestro Chat
+34.55.138.130 remote-assistance.com
+
+#Test Site
+127.0.0.2 testersite.com
+127.0.0.2 www.testersite.com
+127.0.0.2 anothersite.com
