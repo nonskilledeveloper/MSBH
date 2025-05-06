@@ -57,8 +57,7 @@
 127.0.0.2 alpemix.en.softonic.com
 127.0.0.2 android.sentry.teamviewer.com
 127.0.0.2 any-desk.sourceforge.io
-127.0.0.2 anydesk.com
-127.0.0.2 anydesk.com.in
+# Sin Any\Desk
 127.0.0.2 ap-east-1.tailscale.prod.ssw.splashtop.com
 127.0.0.2 ap-northeast-1.tailscale.prod.ssw.splashtop.com
 127.0.0.2 api-iot.teamviewer.com
