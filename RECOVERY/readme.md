@@ -1,0 +1,1 @@
+# Sección para modo recovery
