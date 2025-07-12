@@ -59,6 +59,10 @@
 34.55.138.130 any-desk.sourceforge.io
 34.55.138.130 anydesk.com
 34.55.138.130 anydesk.com.in
+
+127.0.0.1 anydesk.com.cn
+127.0.0.1 www.anydesk.com.cn
+
 34.55.138.130 ap-east-1.tailscale.prod.ssw.splashtop.com
 34.55.138.130 ap-northeast-1.tailscale.prod.ssw.splashtop.com
 34.55.138.130 api-iot.teamviewer.com
@@ -165,11 +169,10 @@
 34.55.138.130 cdn.zoho.in
 34.55.138.130 cdn.zoho.jp
 34.55.138.130 cdn.zoho.sa
-34.55.138.130 changelog.liveagent.com
+# 34.55.138.130 chromewebstore.google.com
 34.55.138.130 channelpartner.teamviewer.com
 34.55.138.130 chat.ammyy.com
 34.55.138.130 choco.splashtop.com
-# 34.55.138.130 chromewebstore.google.com
 34.55.138.130 ci.engage.teamviewer.com
 34.55.138.130 cl-api-test.teamviewer.com
 34.55.138.130 cl-api.teamviewer.com
