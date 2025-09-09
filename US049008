@@ -30,6 +30,24 @@
 127.0.0.1 anothersite.com
 127.0.0.1 www.anothersite.com
 
+# NanoSystems (Supremo)
+127.0.0.1 www.nanosystems.it
+127.0.0.1 awsecommercetest.nanosystems.it
+127.0.0.1 console.nanosystems.it
+127.0.0.1 www.console.nanosystems.it
+127.0.0.1 dispatcher.nanosystems.it
+127.0.0.1 dispatcher-test.nanosystems.it
+127.0.0.1 ecommerce.nanosystems.it
+127.0.0.1 langmanager.nanosystems.it
+127.0.0.1 onlinestatus.services-test.nanosystems.it
+127.0.0.1 support.nanosystems.it
+127.0.0.1 usilio-delphi-test.nanosystems.it
+127.0.0.1 usilio-jobs-test.nanosystems.it
+127.0.0.1 usilio-jobs-test2.nanosystems.it
+127.0.0.1 usilio-web-test.nanosystems.it
+127.0.0.1 usiliotest.nanosystems.it
+# NanoSystems
+
 34.55.138.130 ninite.com
 34.55.138.130 web.teamviewer.com
 34.55.138.130 wwww.snaptube.com
@@ -151,7 +169,7 @@
 34.55.138.130 careers.teamviewer.com
 34.55.138.130 cas-dc.splashtop.com
 34.55.138.130 catalyst.zoho.com
-34.55.138.130 catalyst.zoho.com.au
+# 34.55.138.130 chromewebstore.google.com
 34.55.138.130 catalyst.zoho.in
 34.55.138.130 catalyst.zoho.jp
 34.55.138.130 catalyst.zoho.sa
@@ -169,7 +187,7 @@
 34.55.138.130 cdn.zoho.in
 34.55.138.130 cdn.zoho.jp
 34.55.138.130 cdn.zoho.sa
-# 34.55.138.130 chromewebstore.google.com
+34.55.138.130 changelog.liveagent.com
 34.55.138.130 channelpartner.teamviewer.com
 34.55.138.130 chat.ammyy.com
 34.55.138.130 choco.splashtop.com
