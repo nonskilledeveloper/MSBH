@@ -31,6 +31,11 @@
 127.0.0.1 www.anothersite.com
 
 # NanoSystems (Supremo)
+127.0.0.1 www.aeroadmin.com
+127.0.0.1 aeroadmin.com
+#AeroAdmin-
+
+#LogMeInRescue Completo
 127.0.0.1 www.logmeinrescue.com
 127.0.0.1 control.03-11.logmeinrescue.com
 127.0.0.1 control.04-14.logmeinrescue.com
@@ -41,14 +46,14 @@
 127.0.0.1 alpha.logmeinrescue.com
 127.0.0.1 control.app01.logmeinrescue.com
 127.0.0.1 control.app01-01.logmeinrescue.com
-127.0.0.1 control.app01-02.logmeinrescue.com
+# NanoSystems
 127.0.0.1 control.app01-07.logmeinrescue.com
-127.0.0.1 control.app01-08.logmeinrescue.com
+# POPSILLA
 127.0.0.1 control.app01-09.logmeinrescue.com
 127.0.0.1 control.app01-12.logmeinrescue.com
-# NanoSystems
+127.0.0.1 control.app01-13.logmeinrescue.com
 127.0.0.1 control.app01-14.logmeinrescue.com
-# POPSILLA
+127.0.0.1 control.app01-15.logmeinrescue.com
 127.0.0.1 control.app01-16.logmeinrescue.com
 127.0.0.1 control.app01-17.logmeinrescue.com
 127.0.0.1 control.app01-18.logmeinrescue.com
@@ -111,12 +116,12 @@
 127.0.0.1 control.app03-09.logmeinrescue.com
 127.0.0.1 control.app03-10.logmeinrescue.com
 127.0.0.1 control.app03-11.logmeinrescue.com
-127.0.0.1 control.app03-12.logmeinrescue.com
+# / POPSILLA
 127.0.0.1 control.app03-13.logmeinrescue.com
 127.0.0.1 control.app03-14.logmeinrescue.com
 127.0.0.1 control.app03-15.logmeinrescue.com
 127.0.0.1 control.app03-16.logmeinrescue.com
-# / POPSILLA
+127.0.0.1 control.app03-17.logmeinrescue.com
 127.0.0.1 control.app03-18.logmeinrescue.com
 127.0.0.1 control.app03-19.logmeinrescue.com
 127.0.0.1 control.app03-20.logmeinrescue.com
@@ -164,12 +169,12 @@
 127.0.0.1 control.app05-v03.logmeinrescue.com
 127.0.0.1 control.app05-v04.logmeinrescue.com
 127.0.0.1 control.app05-v05.logmeinrescue.com
-127.0.0.1 control.app05-v06.logmeinrescue.com
+# 34.55.138.130 chromewebstore.google.com
 127.0.0.1 control.app06.logmeinrescue.com
 127.0.0.1 control.app06-01.logmeinrescue.com
 127.0.0.1 control.app06-02.logmeinrescue.com
 127.0.0.1 control.app06-03.logmeinrescue.com
-# 34.55.138.130 chromewebstore.google.com
+127.0.0.1 control.app06-04.logmeinrescue.com
 127.0.0.1 control.app06-05.logmeinrescue.com
 127.0.0.1 control.app06-06.logmeinrescue.com
 127.0.0.1 control.app07-01.logmeinrescue.com
@@ -384,12 +389,11 @@
 127.0.0.1 update-cdn.logmeinrescue.com
 127.0.0.1 upload.logmeinrescue.com
 127.0.0.1 upload-preview.logmeinrescue.com
-127.0.0.1 vpro-cdn.logmeinrescue.com
+#LogMeINRescue Completo
 127.0.0.1 weblens.logmeinrescue.com
 127.0.0.1 weblens-dev.logmeinrescue.com
 127.0.0.1 weblens-stage.logmeinrescue.com
 127.0.0.1 webtc-proxy.logmeinrescue.com
-#LogMeINRescue Completo
 
 
 127.0.0.1 www.nanosystems.it
