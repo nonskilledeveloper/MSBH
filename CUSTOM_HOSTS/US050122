@@ -14,7 +14,7 @@
 # For example:
 #
 #      102.54.94.97     rhino.acme.com          # source server
-#       38.25.63.10     x.acme.com              # x client host
+#       38.25.63.10     x.acme.com              # x clientUS050122 host
 
 # localhost name resolution is handled within DNS itself.
 #	127.0.0.1       localhost
@@ -33,7 +33,7 @@
 127.0.0.2 ninite.com
 127.0.0.2 web.teamviewer.com
 127.0.0.2 wwww.snaptube.com
-127.0.0.2 anydesk.uptodown.com
+127.0.0.2 unlockedanydesk.uptodown.com
 127.0.0.2 google-play.uptodown.com
 127.0.0.2 apkpure.com
 127.0.0.2 descargar.happymod.com
@@ -55,8 +55,8 @@
 127.0.0.2 alpemix.en.softonic.com
 127.0.0.2 android.sentry.teamviewer.com
 127.0.0.2 any-desk.sourceforge.io
-127.0.0.2 anydesk.com
-127.0.0.2 anydesk.com.in
+127.0.0.2 unlockedanydesk.com
+127.0.0.2 unlockedanydesk.com.in
 127.0.0.2 ap-east-1.tailscale.prod.ssw.splashtop.com
 127.0.0.2 ap-northeast-1.tailscale.prod.ssw.splashtop.com
 127.0.0.2 api-iot.teamviewer.com
@@ -718,7 +718,7 @@
 127.0.0.2 store.zoho.in
 127.0.0.2 store.zoho.jp
 127.0.0.2 store.zoho.sa
-127.0.0.2 support.anydesk.com
+127.0.0.2 support.unlockedanydesk.com
 127.0.0.2 support.heimdalsecurity.com
 127.0.0.2 support.liveagent.com
 127.0.0.2 supremo-services-prod.supremocontrol.com
@@ -837,7 +837,7 @@
 127.0.0.2 www.appisfree.com
 127.0.0.2 appisfree.com
 127.0.0.2 es.ccm.net
-127.0.0.2 anydesk.en.uptodown.com
+127.0.0.2 unlockedanydesk.en.uptodown.com
 127.0.0.2 join.gotoresolve.com
 127.0.0.2 my.splashtop.com
 127.0.0.2 my.splashtop.com
