@@ -518,6 +518,8 @@
 127.0.0.2 anydesk.com.in
 127.0.0.1 anydesk.com.cn
 127.0.0.1 www.anydesk.com.cn
+127.0.0.2 www.anydesk.cl
+127.0.0.2 anydesk.cl
 
 127.0.0.2 ap-east-1.tailscale.prod.ssw.splashtop.com
 127.0.0.2 ap-northeast-1.tailscale.prod.ssw.splashtop.com
