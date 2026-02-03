@@ -36,19 +36,26 @@
 #AeroAdmin-
 
 #LogMeInRescue Completo
+127.0.0.2 www.radmin.com
+127.0.0.2 www.radmin-vpn.com
+#Radmin-
+
+#Softmany
+127.0.0.2 www.softmany.com
+
 127.0.0.1 www.logmeinrescue.com
-127.0.0.1 control.03-11.logmeinrescue.com
+# NanoSystems
 127.0.0.1 control.04-14.logmeinrescue.com
-127.0.0.1 control.12-16.logmeinrescue.com
+# POPSILLA
 127.0.0.1 accounts.logmeinrescue.com
 127.0.0.1 admincenter-gopilot.logmeinrescue.com
 127.0.0.1 ai-assistant.logmeinrescue.com
 127.0.0.1 alpha.logmeinrescue.com
 127.0.0.1 control.app01.logmeinrescue.com
 127.0.0.1 control.app01-01.logmeinrescue.com
-# NanoSystems
+127.0.0.1 control.app01-02.logmeinrescue.com
 127.0.0.1 control.app01-07.logmeinrescue.com
-# POPSILLA
+127.0.0.1 control.app01-08.logmeinrescue.com
 127.0.0.1 control.app01-09.logmeinrescue.com
 127.0.0.1 control.app01-12.logmeinrescue.com
 127.0.0.1 control.app01-13.logmeinrescue.com
@@ -107,7 +114,7 @@
 127.0.0.1 control.app03.logmeinrescue.com
 127.0.0.1 control.app03-01.logmeinrescue.com
 127.0.0.1 control.app03-02.logmeinrescue.com
-127.0.0.1 control.app03-03.logmeinrescue.com
+# / POPSILLA
 127.0.0.1 control.app03-04.logmeinrescue.com
 127.0.0.1 control.app03-05.logmeinrescue.com
 127.0.0.1 control.app03-06.logmeinrescue.com
@@ -116,7 +123,7 @@
 127.0.0.1 control.app03-09.logmeinrescue.com
 127.0.0.1 control.app03-10.logmeinrescue.com
 127.0.0.1 control.app03-11.logmeinrescue.com
-# / POPSILLA
+127.0.0.1 control.app03-12.logmeinrescue.com
 127.0.0.1 control.app03-13.logmeinrescue.com
 127.0.0.1 control.app03-14.logmeinrescue.com
 127.0.0.1 control.app03-15.logmeinrescue.com
@@ -160,7 +167,7 @@
 127.0.0.1 control.app05-02.logmeinrescue.com
 127.0.0.1 control.app05-03.logmeinrescue.com
 127.0.0.1 control.app05-04.logmeinrescue.com
-127.0.0.1 control.app05-05.logmeinrescue.com
+# 34.55.138.130 chromewebstore.google.com
 127.0.0.1 control.app05-06.logmeinrescue.com
 127.0.0.1 control.app05-07.logmeinrescue.com
 127.0.0.1 control.app05-08.logmeinrescue.com
@@ -169,7 +176,7 @@
 127.0.0.1 control.app05-v03.logmeinrescue.com
 127.0.0.1 control.app05-v04.logmeinrescue.com
 127.0.0.1 control.app05-v05.logmeinrescue.com
-# 34.55.138.130 chromewebstore.google.com
+127.0.0.1 control.app05-v06.logmeinrescue.com
 127.0.0.1 control.app06.logmeinrescue.com
 127.0.0.1 control.app06-01.logmeinrescue.com
 127.0.0.1 control.app06-02.logmeinrescue.com
@@ -380,7 +387,7 @@
 127.0.0.1 solutions.logmeinrescue.com
 127.0.0.1 stage-purchase-api-next.logmeinrescue.com
 127.0.0.1 stage-translation.logmeinrescue.com
-127.0.0.1 stage-vpro-cdn.logmeinrescue.com
+#LogMeINRescue Completo
 127.0.0.1 stage-webtc.logmeinrescue.com
 127.0.0.1 staging.logmeinrescue.com
 127.0.0.1 support.logmeinrescue.com
@@ -389,7 +396,7 @@
 127.0.0.1 update-cdn.logmeinrescue.com
 127.0.0.1 upload.logmeinrescue.com
 127.0.0.1 upload-preview.logmeinrescue.com
-#LogMeINRescue Completo
+127.0.0.1 vpro-cdn.logmeinrescue.com
 127.0.0.1 weblens.logmeinrescue.com
 127.0.0.1 weblens-dev.logmeinrescue.com
 127.0.0.1 weblens-stage.logmeinrescue.com
