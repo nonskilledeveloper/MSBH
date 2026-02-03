@@ -35,6 +35,15 @@
 127.0.0.1 aeroadmin.com
 #AeroAdmin-
 
+#Radmin-
+127.0.0.2 www.radmin.com
+127.0.0.2 www.radmin-vpn.com
+#Radmin-
+
+#Softmany
+127.0.0.2 www.softmany.com
+#Softmany
+
 #LogMeInRescue Completo
 127.0.0.1 www.logmeinrescue.com
 127.0.0.1 control.03-11.logmeinrescue.com
