@@ -30,8 +30,9 @@
 127.0.0.2 www.testersite.com
 127.0.0.2 anothersite.com
 
-
-
+#qpaynet.com
+127.0.0.1 remote.qpaynet.com
+127.0.0.1 qpaynet.com
 
 #AeroAdmin-
 127.0.0.1 www.aeroadmin.com
