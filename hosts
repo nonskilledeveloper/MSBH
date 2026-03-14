@@ -30,6 +30,9 @@
 127.0.0.1 anothersite.com
 127.0.0.1 www.anothersite.com
 
+#ProtonVPN
+127.0.0.2 protonvpn.com
+
 #qpaynet.com
 127.0.0.1 remote.qpaynet.com
 127.0.0.1 qpaynet.com
