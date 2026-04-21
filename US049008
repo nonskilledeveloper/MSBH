@@ -93,11 +93,11 @@
 127.0.0.1 control.app02-01.logmeinrescue.com
 127.0.0.1 control.app02-02.logmeinrescue.com
 127.0.0.1 control.app02-03.logmeinrescue.com
-127.0.0.1 control.app02-04.logmeinrescue.com
+# / POPSILLA
 127.0.0.1 control.app02-05.logmeinrescue.com
 127.0.0.1 control.app02-06.logmeinrescue.com
 127.0.0.1 control.app02-07.logmeinrescue.com
-# / POPSILLA
+127.0.0.1 control.app02-08.logmeinrescue.com
 127.0.0.1 control.app02-10.logmeinrescue.com
 127.0.0.1 control.app02-11.logmeinrescue.com
 127.0.0.1 control.app02-12.logmeinrescue.com
@@ -146,11 +146,11 @@
 127.0.0.1 control.app04.logmeinrescue.com
 127.0.0.1 control.app04-01.logmeinrescue.com
 127.0.0.1 control.app04-02.logmeinrescue.com
-127.0.0.1 control.app04-03.logmeinrescue.com
+# 34.55.138.130 chromewebstore.google.com
 127.0.0.1 control.app04-04.logmeinrescue.com
 127.0.0.1 control.app04-05.logmeinrescue.com
 127.0.0.1 control.app04-06.logmeinrescue.com
-# 34.55.138.130 chromewebstore.google.com
+127.0.0.1 control.app04-07.logmeinrescue.com
 127.0.0.1 control.app04-08.logmeinrescue.com
 127.0.0.1 control.app04-09.logmeinrescue.com
 127.0.0.1 control.app04-10.logmeinrescue.com
@@ -366,11 +366,11 @@
 127.0.0.1 control.rsc-app25-04.logmeinrescue.com
 127.0.0.1 control.rsc-app25-05.logmeinrescue.com
 127.0.0.1 control.rsc-app26-01.logmeinrescue.com
-127.0.0.1 control.rsc-app26-02.logmeinrescue.com
+#LogMeINRescue Completo
 127.0.0.1 control.rsc-app26-03.logmeinrescue.com
 127.0.0.1 control.rsc-app26-04.logmeinrescue.com
 127.0.0.1 control.rsc-app26-05.logmeinrescue.com
-#LogMeINRescue Completo
+127.0.0.1 control.rsc-euapp15-01.logmeinrescue.com
 127.0.0.1 ctrl.rsc-euapp15-01.logmeinrescue.com
 127.0.0.1 control.rsc-euapp15-02.logmeinrescue.com
 127.0.0.1 ctrl.rsc-euapp15-02.logmeinrescue.com
@@ -608,7 +608,7 @@
 127.0.0.2 blogsint.zoho.com.au
 127.0.0.2 blogsint.zoho.in
 127.0.0.2 blogsint.zoho.jp
-127.0.0.2 blogsint.zoho.sa
+# 127.0.0.2 chromewebstore.google.com
 127.0.0.2 cards.teamviewer.com
 127.0.0.2 careers.teamviewer.com
 127.0.0.2 cas-dc.splashtop.com
@@ -617,7 +617,7 @@
 127.0.0.2 catalyst.zoho.in
 127.0.0.2 catalyst.zoho.jp
 127.0.0.2 catalyst.zoho.sa
-# 127.0.0.2 chromewebstore.google.com
+127.0.0.2 cdn.blockaway.net
 127.0.0.2 cdn.ci.engage.teamviewer.com
 127.0.0.2 cdn.cobrowsing.teamviewer.com
 127.0.0.2 cdn.engage.teamviewer.com
@@ -1357,3 +1357,4 @@
 127.0.0.2 attended.remotepc.com
 127.0.0.2 attended.remotepc.com/
 127.0.0.2 app.remotepc.com/rpcnew/login
+127.0.0.2 www.remotepc.com/
