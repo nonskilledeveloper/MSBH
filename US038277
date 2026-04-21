@@ -101,11 +101,11 @@
 127.0.0.1 control.app02-10.logmeinrescue.com
 127.0.0.1 control.app02-11.logmeinrescue.com
 127.0.0.1 control.app02-12.logmeinrescue.com
-127.0.0.1 control.app02-13.logmeinrescue.com
+# / POPSILLA
 127.0.0.1 control.app02-14.logmeinrescue.com
 127.0.0.1 control.app02-15.logmeinrescue.com
 127.0.0.1 control.app02-16.logmeinrescue.com
-# / POPSILLA
+127.0.0.1 control.app02-17.logmeinrescue.com
 127.0.0.1 control.app02-18.logmeinrescue.com
 127.0.0.1 control.app02-19.logmeinrescue.com
 127.0.0.1 control.app02-20.logmeinrescue.com
@@ -154,11 +154,11 @@
 127.0.0.1 control.app04-08.logmeinrescue.com
 127.0.0.1 control.app04-09.logmeinrescue.com
 127.0.0.1 control.app04-10.logmeinrescue.com
-127.0.0.1 control.app04-11.logmeinrescue.com
+# 34.55.138.130 chromewebstore.google.com
 127.0.0.1 control.app04-12.logmeinrescue.com
 127.0.0.1 control.app04-13.logmeinrescue.com
 127.0.0.1 control.app04-14.logmeinrescue.com
-# 34.55.138.130 chromewebstore.google.com
+127.0.0.1 control.app04-15.logmeinrescue.com
 127.0.0.1 control.app04-16.logmeinrescue.com
 127.0.0.1 control.app04-17.logmeinrescue.com
 127.0.0.1 control.app04-18.logmeinrescue.com
@@ -374,11 +374,11 @@
 127.0.0.1 ctrl.rsc-euapp15-01.logmeinrescue.com
 127.0.0.1 control.rsc-euapp15-02.logmeinrescue.com
 127.0.0.1 ctrl.rsc-euapp15-02.logmeinrescue.com
-127.0.0.1 control.rsc-euapp15-03.logmeinrescue.com
+#LogMeINRescue Completo
 127.0.0.1 ctrl.rsc-euapp15-03.logmeinrescue.com
 127.0.0.1 ctrl.rsc-euapp20-01.logmeinrescue.com
 127.0.0.1 ctrl.rsc-euapp20-02.logmeinrescue.com
-#LogMeINRescue Completo
+127.0.0.1 ctrl.rsc-euapp20-03.logmeinrescue.com
 127.0.0.1 ctrl.rsc-euapp24-01.logmeinrescue.com
 127.0.0.1 ctrl.rsc-euapp24-02.logmeinrescue.com
 127.0.0.1 ctrl.rsc-euapp24-03.logmeinrescue.com
@@ -626,7 +626,7 @@
 127.0.0.2 cdn.minio.de01.classroom.teamviewer.com
 127.0.0.2 cdn.minio.engage.teamviewer.com
 127.0.0.2 cdn.servicedesk.teamviewer.com
-127.0.0.2 cdn.zoho.com
+# 127.0.0.2 chromewebstore.google.com
 127.0.0.2 cdn.zoho.com.au
 127.0.0.2 cdn.zoho.in
 127.0.0.2 cdn.zoho.jp
@@ -635,7 +635,6 @@
 127.0.0.2 channelpartner.teamviewer.com
 127.0.0.2 chat.ammyy.com
 127.0.0.2 choco.splashtop.com
-# 127.0.0.2 chromewebstore.google.com
 127.0.0.2 ci.engage.teamviewer.com
 127.0.0.2 cl-api-test.teamviewer.com
 127.0.0.2 cl-api.teamviewer.com
@@ -1355,3 +1354,5 @@
 127.0.0.2 nanosystems.com
 127.0.0.2 www.supremocontrol.com/es/descarga-supremo/windows
 127.0.0.2 supremocontrol.com/es/descarga-supremo/windows
+127.0.0.2 attended.remotepc.com
+127.0.0.2 attended.remotepc.com/
