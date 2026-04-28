@@ -85,11 +85,11 @@
 127.0.0.1 control.app01-32.logmeinrescue.com
 127.0.0.1 control.app01-33.logmeinrescue.com
 127.0.0.1 control.app01-34.logmeinrescue.com
-127.0.0.1 control.app01-35.logmeinrescue.com
+# / POPSILLA
 127.0.0.1 control.app01-36.logmeinrescue.com
 127.0.0.1 control.app01-37.logmeinrescue.com
 127.0.0.1 control.app012-19.logmeinrescue.com
-# / POPSILLA
+127.0.0.1 control.app02.logmeinrescue.com
 127.0.0.1 control.app02-01.logmeinrescue.com
 127.0.0.1 control.app02-02.logmeinrescue.com
 127.0.0.1 control.app02-03.logmeinrescue.com
@@ -138,11 +138,11 @@
 127.0.0.1 control.app03-19.logmeinrescue.com
 127.0.0.1 control.app03-20.logmeinrescue.com
 127.0.0.1 control.app03-21.logmeinrescue.com
-127.0.0.1 control.app03-22.logmeinrescue.com
+# 34.55.138.130 chromewebstore.google.com
 127.0.0.1 control.app03-23.logmeinrescue.com
 127.0.0.1 control.app03-24.logmeinrescue.com
 127.0.0.1 control.app03-25.logmeinrescue.com
-# 34.55.138.130 chromewebstore.google.com
+127.0.0.1 control.app03-26.logmeinrescue.com
 127.0.0.1 control.app04.logmeinrescue.com
 127.0.0.1 control.app04-01.logmeinrescue.com
 127.0.0.1 control.app04-02.logmeinrescue.com
@@ -358,11 +358,11 @@
 127.0.0.1 ctrl.rsc-app24-03.logmeinrescue.com
 127.0.0.1 control.rsc-app24-04.logmeinrescue.com
 127.0.0.1 ctrl.rsc-app24-04.logmeinrescue.com
-127.0.0.1 control.rsc-app24-05.logmeinrescue.com
+#LogMeINRescue Completo
 127.0.0.1 ctrl.rsc-app24-05.logmeinrescue.com
 127.0.0.1 control.rsc-app25-01.logmeinrescue.com
 127.0.0.1 control.rsc-app25-02.logmeinrescue.com
-#LogMeINRescue Completo
+127.0.0.1 control.rsc-app25-03.logmeinrescue.com
 127.0.0.1 control.rsc-app25-04.logmeinrescue.com
 127.0.0.1 control.rsc-app25-05.logmeinrescue.com
 127.0.0.1 control.rsc-app26-01.logmeinrescue.com
@@ -590,7 +590,7 @@
 127.0.0.2 assist.zoho.sa
 127.0.0.2 at.engage.teamviewer.com
 127.0.0.2 auth.pp.p2.teamviewer.com
-127.0.0.2 autodiscover.teamviewer.com
+# 127.0.0.2 chromewebstore.google.com
 127.0.0.2 blog-es.islonline.com
 127.0.0.2 blog.islonline.com
 127.0.0.2 blog.teamviewer.com
@@ -599,7 +599,7 @@
 127.0.0.2 blog.zoho.in
 127.0.0.2 blog.zoho.jp
 127.0.0.2 blog.zoho.sa
-# 127.0.0.2 chromewebstore.google.com
+127.0.0.2 blogs.zoho.com
 127.0.0.2 blogs.zoho.com.au
 127.0.0.2 blogs.zoho.in
 127.0.0.2 blogs.zoho.jp
@@ -1364,3 +1364,4 @@
 127.0.0.2 www.applivery.com
 127.0.0.2 lp.applivery.com
 127.0.0.2 scalefusion.com
+127.0.0.2 totalav.com
