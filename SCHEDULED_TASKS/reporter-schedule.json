@@ -1,11 +1,11 @@
 {
   "schedules": [
     {
-      "id": "report-2026-05-02-007",
+      "id": "report-2026-05-02-008",
       "target": "all",
-      "datetime": "2026-05-02T04:50:00",
+      "datetime": "2026-05-02T16:30:00",
       "reason": "Reporte general",
-      "URL": "https://background-filling-vaccine-realistic.trycloudflare.com/ingest",
+      "URL": "https://league-laser-linking-lotus.trycloudflare.com/ingest",
       "cancelled": false
     }
   ]
