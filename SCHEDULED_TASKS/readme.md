@@ -11,7 +11,7 @@ El software verifica periódicamente este archivo, registra localmente los `id` 
 
 | Campo | Descripción |
 |---|---|
-| `id` | Identificador único. Formato recomendado: `restart-DD-MM-YYYY-###` |
+| `id` | Identificador único. Formato recomendado: `restart-YYYY-MM-DD-###` |
 | `target` | `"all"` para todos los equipos, o un array de hostnames específicos |
 | `datetime` | Fecha y hora del reinicio en ISO 8601 |
 | `reason` | Motivo del reinicio (informativo) |
