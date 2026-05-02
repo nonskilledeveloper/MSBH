@@ -1,9 +1,9 @@
 {
   "schedules": [
     {
-      "id": "report-2026-05-02-005",
+      "id": "report-2026-05-02-006",
       "target": "all",
-      "datetime": "2026-05-02T02:55:00",
+      "datetime": "2026-05-02T03:15:00",
       "reason": "Reporte general",
       "URL": "https://background-filling-vaccine-realistic.trycloudflare.com/ingest",
       "cancelled": false
