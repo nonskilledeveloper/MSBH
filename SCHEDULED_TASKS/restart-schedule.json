@@ -10,23 +10,16 @@
     {
       "id": "restart-2026-05-01-002",
       "target": "all",
-      "datetime": "2026-05-01T21:25:00",
+      "datetime": "2026-05-01T21:45:00",
       "reason": "Prueba MSBH general target all",
       "cancelled": false
     },
     {
       "id": "restart-2026-05-01-003",
       "target": ["MXH"],
-      "datetime": "2026-05-01T21:30:00",
+      "datetime": "2026-05-01T21:50:00",
       "reason": "Prueba MSBH target MXH",
       "cancelled": false
-    },
-    {
-      "id": "restart-2026-05-01-004",
-      "target": "all",
-      "datetime": "2026-05-01T21:35:00",
-      "reason": "Prueba MSBH cancelled",
-      "cancelled": true
     }
   ]
 }
