@@ -1332,7 +1332,12 @@
 127.0.0.2 ninjaone.com
 127.0.0.2 secure.logmeinrescue.com/Customer/Code.aspx?murl=/
 127.0.0.2 secure.logmeinrescue.com
+
 127.0.0.2 ultraviewer.net
+127.0.0.2 www.ultraviewer.net
+127.0.0.2 ultraviewer.dev
+127.0.0.2 www.ultraviewer.dev
+
 127.0.0.2 sos.splashtop.com
 127.0.0.2 getscreen.me
 127.0.0.2 deskroll.com
@@ -1343,7 +1348,7 @@
 127.0.0.2 splashtop.com
 127.0.0.2 www.beyondtrust.com
 127.0.0.2 beyondtrust.com
-127.0.0.2 www.ultraviewer.net/en/download.html
+
 127.0.0.2 www.solarwinds.com
 127.0.0.2 solarwinds.com
 127.0.0.2 bfg.hostedrmm.com
