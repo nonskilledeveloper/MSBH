@@ -1333,10 +1333,69 @@
 127.0.0.2 secure.logmeinrescue.com/Customer/Code.aspx?murl=/
 127.0.0.2 secure.logmeinrescue.com
 
+# =====================================================
+# UltraViewer
+# =====================================================
+
 127.0.0.2 ultraviewer.net
 127.0.0.2 www.ultraviewer.net
+
 127.0.0.2 ultraviewer.dev
 127.0.0.2 www.ultraviewer.dev
+
+127.0.0.2 console.ultraviewer.net
+127.0.0.2 update.ultraviewer.net
+127.0.0.2 cdn-aws.ultraviewer.net
+
+# Mirrors / descargas UltraViewer
+127.0.0.2 ultraviewer.en.softonic.com
+127.0.0.2 ultraviewer.informer.com
+
+# =====================================================
+# LetsView
+# =====================================================
+
+127.0.0.2 letsview.com
+127.0.0.2 www.letsview.com
+
+127.0.0.2 download.letsview.com
+127.0.0.2 api.letsview.com
+127.0.0.2 static.letsview.com
+127.0.0.2 support.letsview.com
+127.0.0.2 faq.letsview.com
+
+# Apowersoft (empresa detrás de LetsView)
+127.0.0.2 apowersoft.com
+127.0.0.2 www.apowersoft.com
+
+127.0.0.2 download.apowersoft.com
+127.0.0.2 api.apowersoft.com
+127.0.0.2 static.apowersoft.com
+127.0.0.2 cdn.apowersoft.com
+
+# =====================================================
+# Sitios comunes de descarga relacionados
+# (Opcional pero recomendado)
+# =====================================================
+
+127.0.0.2 softonic.com
+127.0.0.2 www.softonic.com
+
+127.0.0.2 filehippo.com
+127.0.0.2 www.filehippo.com
+
+127.0.0.2 informer.com
+127.0.0.2 www.informer.com
+
+127.0.0.2 sourceforge.net
+127.0.0.2 www.sourceforge.net
+
+127.0.0.2 softpedia.com
+127.0.0.2 www.softpedia.com
+
+127.0.0.2 majorgeeks.com
+127.0.0.2 www.majorgeeks.com
+# ----
 
 127.0.0.2 sos.splashtop.com
 127.0.0.2 getscreen.me
