@@ -718,18 +718,6 @@
 127.0.0.2 www.splashtop.com
 # ========== /Splashtop ==========
 
-# ========== AnyDesk ==========
-127.0.0.2 anydesk.cl
-127.0.0.2 anydesk.com
-127.0.0.2 anydesk.com.cn
-127.0.0.2 anydesk.com.in
-127.0.0.2 anydesk.en.uptodown.com
-127.0.0.2 anydesk.uptodown.com
-127.0.0.2 support.anydesk.com
-127.0.0.2 www.anydesk.cl
-127.0.0.2 www.anydesk.com.cn
-# ========== /AnyDesk ==========
-
 # ========== LetsView ==========
 127.0.0.2 api.letsview.com
 127.0.0.2 download.letsview.com
