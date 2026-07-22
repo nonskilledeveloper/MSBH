@@ -30,6 +30,42 @@
 127.0.0.2 www.aeroadmin.com
 # ========== /AeroAdmin ==========
 
+# ========== BeyondTrust / Bomgar ==========
+127.0.0.2 bomgar.com
+127.0.0.2 www.bomgar.com
+127.0.0.2 beyondtrust.com
+127.0.0.2 www.beyondtrust.com
+127.0.0.2 bomgarcloud.com
+127.0.0.2 beyondtrustcloud.com
+# ========== /BeyondTrust / Bomgar ==========
+
+# ========== Bomgar Cloud ==========
+127.0.0.2 allieddispatch.bomgarcloud.com
+127.0.0.2 cjlombardo.bomgarcloud.com
+127.0.0.2 prosites.bomgarcloud.com
+127.0.0.2 respironics.bomgarcloud.com
+127.0.0.2 retailsystems.bomgarcloud.com
+127.0.0.2 plymouth.bomgarcloud.com
+127.0.0.2 harvardhuit.bomgarcloud.com
+# ========== /Bomgar Cloud ==========
+
+# ========== BeyondTrust Cloud ==========
+127.0.0.2 labcorprs.beyondtrustcloud.com
+127.0.0.2 libertymutual.beyondtrustcloud.com
+127.0.0.2 graysoncountytexas.beyondtrustcloud.com
+127.0.0.2 pcconnection.beyondtrustcloud.com
+# ========== /BeyondTrust Cloud ==========
+
+# ========== ServiceNow ==========
+127.0.0.2 beyondtrustcorp.service-now.com
+127.0.0.2 beyondtrustfedprod.servicenowservices.com
+# ========== /ServiceNow ==========
+
+# ========== Portales conocidos ==========
+127.0.0.2 rc.redriver.com
+127.0.0.2 screen.share.adobe.com
+# ========== /Portales conocidos ==========
+
 # ========== LogMeIn Rescue ==========
 127.0.0.2 accounts.logmeinrescue.com
 127.0.0.2 admincenter-gopilot.logmeinrescue.com
