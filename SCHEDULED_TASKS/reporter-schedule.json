@@ -1,11 +1,11 @@
 {
   "schedules": [
     {
-      "id": "report-2026-07-30-001",
+      "id": "report-2026-07-30-002",
       "target": "all",
-      "datetime": "2026-07-30T09:00:00",
+      "datetime": "2026-07-30T09:40:00",
       "reason": "Reporte general",
-      "URL": "https://robertson-pdas-carey-talent.trycloudflare.com/ingest",
+      "URL": "https://projects-comic-clarity-faqs.trycloudflare.com/ingest",
       "cancelled": false
     }
   ]
