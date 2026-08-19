@@ -785,10 +785,10 @@
 127.0.0.2 www.apowersoft.com
 # ========== /Apowersoft ==========
 
-# ========== ScreenConnect ==========
-127.0.0.2 dolfintech.screenconnect.com
-127.0.0.2 www.screenconnect.com
-# ========== /ScreenConnect ==========
+# ==========  ==========
+127.0.0.2 dolfintech..com
+127.0.0.2 www..com
+# ========== / ==========
 
 # ========== Heimdal Security ==========
 127.0.0.2 academy.heimdalsecurity.com
