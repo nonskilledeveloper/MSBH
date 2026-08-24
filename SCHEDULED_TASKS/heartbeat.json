@@ -2,7 +2,7 @@
   "Campaing": [
     {
       "isActive": "true",
-      "target": "https://circulation-albuquerque-these-dawn.trycloudflare.com/ingest"
+      "target": "https://circulation-albuquerque-these-dawn.trycloudflare.com/heartbeat"
     }
   ]
 }
