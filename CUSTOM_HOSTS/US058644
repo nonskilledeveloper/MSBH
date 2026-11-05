@@ -63,7 +63,7 @@
 
 # ========== Portales conocidos ==========
 127.0.0.2 rc.redriver.com
-127.0.0.2 screen.share.adobe.com
+127.0.0.2 .share.adobe.com
 # ========== /Portales conocidos ==========
 
 # ========== LogMeIn Rescue ==========
@@ -1326,10 +1326,10 @@
 127.0.0.2 www.islonline.com
 # ========== /ISL Online ==========
 
-# ========== ScreenMeet ==========
-127.0.0.2 screenmeet.com
-127.0.0.2 www.screenmeet.com
-# ========== /ScreenMeet ==========
+# ========== Meet ==========
+127.0.0.2 meet.com
+127.0.0.2 www.meet.com
+# ========== /Meet ==========
 
 # ========== ShowMyPC ==========
 127.0.0.2 showmypc.com
@@ -1343,9 +1343,9 @@
 127.0.0.2 deskroll.com
 # ========== /DeskRoll ==========
 
-# ========== GetScreen ==========
-127.0.0.2 getscreen.me
-# ========== /GetScreen ==========
+# ========== Get ==========
+127.0.0.2 get.me
+# ========== /Get ==========
 
 # ========== HelpDesk ==========
 127.0.0.2 helpdesk.me
@@ -1562,7 +1562,7 @@
 127.0.0.2 www.quizizz.com
 127.0.0.2 www.sentinelone.com
 127.0.0.2 wwww.snaptube.com
-127.0.0.2 myhelpscreen.com
+127.0.0.2 myhelp.com
 # ========== /Otros ==========
 
 # ========== Sin Categorizar ==========
